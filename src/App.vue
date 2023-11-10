@@ -1,13 +1,12 @@
 <template>
-  <div id="app">
+  <van-config-provider :theme="theme">
     <router-view />
-  </div>
+  </van-config-provider>
 </template>
 
-<style>
-body {
-  font-size: 16px;
-  background-color: #f8f8f8;
-  -webkit-font-smoothing: antialiased;
-}
-</style>
+<script setup lang="ts">
+import { ref } from 'vue'
+import { ConfigProviderTheme } from 'vant'
+
+const theme = ref<ConfigProviderTheme>('light')
+</script>

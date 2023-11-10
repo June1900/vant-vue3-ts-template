@@ -48,7 +48,6 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { showToast } from 'vant'
-import router from '@/router/router'
 
 import type { IGoods } from '@/types'
 
@@ -68,11 +67,11 @@ const formatPrice = () => {
 }
 
 const onClickMember = () => {
-  router.push('user')
+  showToast('user')
 }
 
 const onClickCart = () => {
-  router.push('cart')
+  showToast('cart')
 }
 
 const sorry = (text: string = '暂无后续逻辑~') => {

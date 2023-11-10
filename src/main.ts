@@ -1,8 +1,16 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import 'vant/es/toast/style'
-import router from './router/router'
+import { setupStore } from '@/store'
+import { setupRouter } from '@/router'
 
-const app = createApp(App)
-app.use(router)
-app.mount('#app')
+const bootstrap = () => {
+  const app = createApp(App)
+  // 状态管理
+  setupStore(app)
+  // 注册路由
+  setupRouter(app)
+  app.mount('#app')
+}
+
+bootstrap()
