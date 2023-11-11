@@ -21,9 +21,7 @@ const instance: AxiosInstance = axios.create(config)
 
 instance.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    console.log('config===>', config)
-    const { method, params } = config
-    console.log(params)
+    const { method } = config
     let { headers } = config
     // 不缓存get请求
     if (method.toLowerCase() === RequestEnum.GET) {
@@ -31,7 +29,6 @@ instance.interceptors.request.use(
       // @ts-ignore
       headers = { ...headers, ...cache }
     }
-    console.log(headers)
     return {
       ...config,
       headers
