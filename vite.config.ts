@@ -7,7 +7,7 @@ import { VantResolver } from '@vant/auto-import-resolver'
 import viteCompression from 'vite-plugin-compression'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
-function pathResolve(dir: string) {
+const pathResolve = (dir: string) => {
   return resolve(process.cwd(), '.', dir)
 }
 
@@ -41,9 +41,16 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     },
     server: {
       cors: true,
-      port: 4200,
+      port: Number(env.VITE_APP_PORT),
       host: '0.0.0.0',
-      open: false
+      open: false,
+      proxy: {
+        [env.VITE_APP_BASE_API]: {
+          target: env.VITE_APP_PROXY_URL,
+          changeOrigin: true,
+          rewrite: path => path.replace(new RegExp(`^${env.VITE_APP_BASE_API}`), '')
+        }
+      }
     },
     resolve: {
       alias: {

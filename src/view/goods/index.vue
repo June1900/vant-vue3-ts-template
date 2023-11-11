@@ -50,6 +50,7 @@ import { reactive } from 'vue'
 import { showToast } from 'vant'
 
 import type { IGoods } from '@/types'
+import { getGoodsList } from '@/view/goods/api'
 
 const goods = reactive<IGoods>({
   title: '美国伽力果（约680g/3个）',
@@ -77,6 +78,10 @@ const onClickCart = () => {
 const sorry = (text: string = '暂无后续逻辑~') => {
   showToast(text)
 }
+
+getGoodsList().then(res => {
+  console.log('getGoodsList===>', res)
+})
 </script>
 
 <style lang="scss">
