@@ -3,6 +3,7 @@ import App from './App.vue'
 import 'vant/es/toast/style'
 import { setupStore } from '@/store'
 import { setupRouter } from '@/router'
+import 'virtual:uno.css'
 
 const bootstrap = () => {
   const app = createApp(App)

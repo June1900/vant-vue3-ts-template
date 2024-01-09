@@ -6,6 +6,7 @@ import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from '@vant/auto-import-resolver'
 import viteCompression from 'vite-plugin-compression'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import UnoCSS from 'unocss/vite'
 
 const pathResolve = (dir: string) => {
   return resolve(process.cwd(), '.', dir)
@@ -29,7 +30,8 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         resolvers: [VantResolver()],
         dts: false
       }),
-      viteCompression({})
+      viteCompression({}),
+      UnoCSS()
     ],
     optimizeDeps: {},
     esbuild: {

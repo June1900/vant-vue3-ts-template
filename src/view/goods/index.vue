@@ -42,6 +42,8 @@
       <van-action-bar-button type="warning" @click="sorry('加入购物车~')">加入购物车</van-action-bar-button>
       <van-action-bar-button type="danger" @click="sorry('立即购买~')">立即购买</van-action-bar-button>
     </van-action-bar>
+    <div class="m-30">测试uno css</div>
+    <div class="p-30">测试uno css11</div>
   </div>
 </template>
 
